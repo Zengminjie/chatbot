@@ -1,0 +1,246 @@
+1、直播列表接口
+{yunvaId=100131, queryType=6, pageIndex=0, pageSize=8, appId='100005', type='1'}
+
+{
+    result=0,
+    msg='操作成功',
+    queryType=6,
+    queryUserShowInfo=[
+        QueryUserShowInfo{
+            transactionId='a500a5022016062309445649300000006',
+            yunvaId=100048,
+            roomId=77706,
+            content='77706',
+            nickName='bedgirl',
+            praiseCount=0,
+            peopleCount=1,
+            coverUrl='9Aa=If.jpg',
+            address='null',
+            showType=2,
+            terminalType=3,
+            vipUrl='null',
+            headUrl='http: //f.aiwaya.cn/NAZD',
+            roomType=4,
+            peopleCardinal=50,
+            charmLevel=21,
+            labelContent={
+                "country": "Indonesia",
+                "state": "Jakarta",
+                "city": "Jakarta",
+                "language": [
+                    "Bahasa",
+                    "English"
+                ],
+                "category": [
+                    "Singing",
+                    "DJ"
+                ],
+                "other": [
+                    "newface",
+                    "cute"
+                ]
+            },
+            labelIconUrl=null
+        },
+        …
+    ]
+}
+
+peopleCardinal 游客基数，后台定死  1
+peopleCount  实际在线人数   主播1+登陆账号+登陆游客
+peopleCardinal + peopleCount  显示给用户看的在线人数   5 tab
+
+2、查询用户详情
+QueryUserShowDetailReq:{appId100005|yunvaId100020|chairId100180|roomId81477|showType2}
+
+ProxyEsbReq [msgId=393, moduleid=42240, uuid=386c6f564a4841ecadf8c2089e2ee802, data=[4, 0, 4, 0, 1, 62, 69, 1, 0, 7, 49, 48, 48, 48, 48, 53, 0, 5, 0, 4, 0, 0, 0, 2, 2, 0, 4, 0, 1, -122, -76, 3, 0, 4, 0, 1, -121, 84]] 
+
+QueryUserShowDetailResp:{result:0|msg:操作成功|showType:2|roomBaseInfo:QueryRoomBaseInfo{roomId=81477, roomName='PC001（请勿修改）', roomType=4, belongId=100180, peopleCount=3, roomIconUrl='9Aa=EQB.jpg', roomBackgroundUrl='9Aa=mQ.jpg', description='', declaration='null', roomNotice='', peopleCardinal=1, speakInterval='3', speakLength=50}|showBaseInfo:QueryShowBaseInfo:{transactionId:a500a5022016072105553113900000010|content:PC001（请勿修改）|address:null|coverUrl:9Aa=ocM.jpg|showType:2|terminalType:3|startTime:1469080528}|chairBaseInfo:QueryUserBaseInfo{yunvaId=100180, nickName='PC001', sex=2, age=26, headUrl='null', introduction='null', address='null', charmLevel=0, hotPrgress='80', hotMax='10000', chairRank='1', roomTopCount=0}|chairStateInfo:QueryUserStateInfo:{onLine:0|onMic:1|onPunch:0|onFocus:1|onSpline:null}|chairHarvestInfo:{totalItem0|totalFollower5|totalPraise0}|userBaseInfo:null} 
+
+
+
+3、房间在线人员列表推送
+RoomUserListNotify{yunvaId=100020, userList=[RoomUserInfo [yunvaId=100017, nickname=%…:。……%……%, gag=0, userData=UserData{headUrl='http://f.aiwaya.cn/NAZD', signature='', sex=2, star='魔蝎座', wealth=73, charm=0, charmtype='null', wealthbkcolor='null', wealthname='', level=null, wealthurl='', vip_grade=0, tqIconUrl='null', tqLevel=null, xzIconUrl1='null', xzIconUrl2='null', cp_ext1='null', cp_id='null', cp_appid='100005', charmIconUrl='http://f.aiwaya.cn/mtVE', vipIconUrl='', isGuest=1, personalMedalIcon=}, role=20], RoomUserInfo [yunvaId=100180, nickname=PC001, gag=0, userData=UserData{headUrl='', signature='', sex=2, star='魔蝎座', wealth=1, charm=0, charmtype='null', wealthbkcolor='', wealthname='', level=1, wealthurl='', vip_grade=0, tqIconUrl='', tqLevel=0, xzIconUrl1='', xzIconUrl2='', cp_ext1='null', cp_id='null', cp_appid='100005', charmIconUrl='http://f.aiwaya.cn/mtVE', vipIconUrl='', isGuest=1, personalMedalIcon=}, role=3]]}
+
+4、房间用户登进通知
+RoomUserLoginNotify [yunvaId=100017, nickname=%…:。……%……%, admin=null, account=, role=20, gag=0, userData=UserData{headUrl='http://f.aiwaya.cn/NAZD', signature='', sex=2, star='魔蝎座', wealth=73, charm=0, charmtype='null', wealthbkcolor='null', wealthname='null', level=null, wealthurl='', vip_grade=0, tqIconUrl='null', tqLevel=null, xzIconUrl1='null', xzIconUrl2='null', cp_ext1='null', cp_id='null', cp_appid='100005', charmIconUrl='http://f.aiwaya.cn/mtVE', vipIconUrl='', isGuest=1, personalMedalIcon=}]
+
+5、购买礼物或者座驾
+UserGiveGiftReq [moduleId=49920, msgCode=1, yunvaId=100020, recevierYunvaId=null, goodsId=4520, goodsName=Harley-Davidson, goodsVersion=null, goodsType=4, goodsPrice=17, goodsItems=1, goodsSign=d1e5fc297c579f0545bd5ecc06268e4b, remark=null, channelId=direct, sourceId=null, appId=100005, appName=LiveTver, appVersion=1.0alpha, imsi=, imei=862044033789152, mac=02:00:00:00:00:00, payPassword=null, factory=LeMobile, model=Le X620, roomId=null, chatMsg=, chatPicUrl=http://plugin.soulgun.net/9Aa=Iz.png, cartoonType=0, cartoonUrl=, voiceUrl=, osType=1, nickname=我的名字很长很长, recevierNickname=null, iconUrl=9Aa=eDB.jpg, sex=2, star=魔蝎座, giftPicUrl=http://plugin.soulgun.net/9Aa=Yr.png, giftCurrencyType=1, currenty=1, charmValue=null, noticeType=0, wishType=null, giftAllNotice=null, day=3, times=null, charmValueSwitch=1, requestType=null, ext=null, yayaExt=, buyRequest=]
+
+ProxyEsbReq [msgId=1, moduleid=49920, uuid=f6be07f1ebd64e6fbabd559303d334f7, data=[…]]
+
+UserGiveGiftResp [result=0, msg=null, recevierYunvaId=null, goodsId=4519, goodsName=哈雷摩托车, goodsVersion=null, goodsType=4, goodsPrice=1700, goodsItems=1, roomId=null, transactionId=c300c3012016072201174770400000095, balance=null, enableMsgRecharge=null, smsPrice=null, tipMessage=null, recevierNickname=null, ext=null]
+
+超时提示语？
+UserGiveGiftResp [result=7, msg=Request timeout. Please try again later., recevierYunvaId=null, goodsId=4520, goodsName=Harley-Davidson, goodsVersion=null, goodsType=4, goodsPrice=17, goodsItems=1, roomId=null, transactionId=null, balance=null, enableMsgRecharge=null, smsPrice=null, tipMessage=null, recevierNickname=null, ext=null]
+
+6、登陆房间
+LoginRoomReq [yunvaId=100020, roomId=81477, ticket=100020-tqRQi255nmRYpPYFFGKGGI, nickname=我的名字很长很长, account=null, userdata=UserData{headUrl='9Aa=eDB.jpg', signature='', sex=2, star='魔蝎座', wealth=95, charm=0, charmtype='null', wealthbkcolor='null', wealthname='', level=null, wealthurl='', vip_grade=0, tqIconUrl='null', tqLevel=-1, xzIconUrl1='null', xzIconUrl2='null', cp_ext1='null', cp_id='null', cp_appid='100005', charmIconUrl='http://f.aiwaya.cn/mtVE', vipIconUrl='', isGuest=1, personalMedalIcon=}, version=1100, terminal=1, usource=0, appId=100005, password=null, mac_address=02:00:00:00:00:00]
+
+LoginRoomResp [result=0, msg=null, roomId=81477, heartbeat=60, currentTime=1469159645, deviceId=null, maxcount=1000, roomType=1, roomCount=3, nickName=我的名字很长很长, usercount=null, gag=0, roomName=PC001（请勿修改）, comment=, roomMode=2, role=20, xMix=null, announcement=, vedioset={"rate":"320*240", "frame":8}, send_time=5, gagtime=0]
+
+7、我的座驾列表
+GuildSetRoleIdReq:{yunvaId:100020|operator:100020|appId:100005}
+ProxyEsbReq [msgId=39, moduleid=9216, uuid=e9f0176026fa46b7b85014cdae1086ec, data=[1, 0, 4, 0, 1, -122, -76, 2, 0, 4, 0, 1, -122, -76, 3, 0, 7, 49, 48, 48, 48, 48, 53, 0]]
+
+QueryUserMatResp [result=0, msg=null, mats=[matId:4550|matName:Bugatti Veyron|matUrl:http://plugin.soulgun.net/9Aa=cYB.png|expireTime:1473818227000|status:1|iconNickName:Bugatti Veyron}, matId:4546|matName:兰博基尼|matUrl:http://plugin.soulgun.net/9Aa=iLB.png|expireTime:1472003818000|status:0|iconNickName:Lamborghini}, matId:4542|matName:Hummer|matUrl:http://plugin.soulgun.net/9Aa=MgB.png|expireTime:1470194274000|status:0|iconNickName:Hummer}, matId:4523|matName:Ducati|matUrl:http://plugin.soulgun.net/9Aa=Mx.png|expireTime:1469421132000|status:0|iconNickName:Ducati}, matId:4519|matName:Harley-Davidson|matUrl:http://plugin.soulgun.net/9Aa=Yr.png|expireTime:1469421109000|status:0|iconNickName:Harley-Davidson}]]
+
+
+
+8、关注
+BatchFocusUserReq{appId='100005', yunvaId=100019, focus='0', toYunvaIds=[100048], showType=2, transactionId='a500a5022016072510145323700000004', roomId=null}
+
+ProxyEsbReq [msgId=1333, moduleid=20480, uuid=230d6ed7820b40b9a3b33df6d7d1b0fe, data=[4, 0, 8, 0, 0, 0, 0, 0, 1, -122, -48, 1, 0, 7, 49, 48, 48, 48, 48, 53, 0, 6, 0, 34, 97, 53, 48, 48, 97, 53, 48, 50, 50, 48, 49, 54, 48, 55, 50, 53, 49, 48, 49, 52, 53, 51, 50, 51, 55, 48, 48, 48, 48, 48, 48, 48, 52, 0, 5, 0, 4, 0, 0, 0, 2, 2, 0, 4, 0, 1, -122, -77, 3, 0, 2, 48, 0]]
+
+9、我的关注列表
+QueryHotUsersReq [yunvaId=100020, userPage=0, userPageSize=8]
+ProxyEsbReq [msgId=369, moduleid=20480, uuid=670f23f1960449ca837a2d07d2bb3423, data=[4, 0, 2, 49, 0, 1, 0, 4, 0, 1, -122, -76, 3, 0, 4, 0, 0, 0, 8, 2, 0, 4, 0, 0, 0, 0]]
+
+QueryFocusUsersResp: {
+    result: 0|msg: null|queryUserInfos: [
+        QueryUserInfo{
+            yunvaId=100292,
+            nickName='Bo@LiveTver',
+            sex=2,
+            iconUrl='null',
+            online='0',
+            time=null,
+            roleId=null,
+            level=1,
+            phone='null',
+            contribution=null,
+            auth='1',
+            realName='null',
+            weixinName='null',
+            sloganUrl='null',
+            sloganDuration=null,
+            comment='null',
+            signature='null',
+            star='null',
+            birthday='null',
+            hobby='null',
+            fansCount=null,
+            focus='1',
+            vip='null',
+            charm='http: //f.aiwaya.cn/mtVE',
+            wealth='',
+            giftCount=null,
+            praiseCount=null,
+            authRank=null,
+            authIconUrl='null',
+            albumCount=null,
+            age=null,
+            praise='null',
+            games=null,
+            signInCount=null,
+            wealthLevel=26,
+            vestUrl='null',
+            activityOneUrl='null',
+            activityTwoUrl='null',
+            privilegeUrl='null',
+            hotValue=null,
+            vipLevel=null,
+            createTime=null,
+            honourInfo=QueryUserHonourInfo{
+                wealthLevel=26,
+                wealthIconUrl='',
+                charmLevel=0,
+                charmIconUrl='null',
+                level=0,
+                levelIconUrl='null',
+                vipLevel=0,
+                vipIconUrl='null',
+                chairCharmLevel=0,
+                chairCharmIconUrl='http: //f.aiwaya.cn/mtVE'
+            },
+            isInvite='0',
+            bigIcon='null',
+            guardLevel='null',
+            guardMedalIcon='null',
+            isNotLiving='1',
+            roomId='null',
+            personalMedalIcon='null',
+            labelContent=null
+        },...
+    ]
+}
+
+
+
+10、登陆
+LoginRoomResp [result=5, msg=找不到指定的频道!, roomId=null, heartbeat=null, currentTime=null, deviceId=null, maxcount=null, roomType=0, roomCount=null, nickName=null, usercount=null, gag=0, roomName=null, comment=null, roomMode=0, role=0, xMix=null, announcement=null, vedioset=null, send_time=null, gagtime=null]
+
+LoginRoomResp [result=0, msg=null, roomId=77706, heartbeat=60, currentTime=1469611683, deviceId=null, maxcount=1000, roomType=1, roomCount=3, nickName=, usercount=null, gag=0, roomName=性感女神, comment=, roomMode=2, role=20, xMix=null, announcement=, vedioset={"rate":"320*240", "frame":8}, send_time=5, gagtime=0]
+
+
+
+
+11、Quest Center列表
+QueryTaskInfosReq [moduleId=20480, msgCode=1059, yunvaId=100020, playPage=0, playPageSize=12, osType=1]
+
+ProxyEsbReq [msgId=1059, moduleid=20480, uuid=165e752d624545cda85b0947e771f3f7, data=[4, 0, 2, 49, 0, 1, 0, 4, 0, 1, -122, -76, 5, 0, 2, 49, 0, 3, 0, 4, 0, 0, 0, 12, 2, 0, 4, 0, 0, 0, 0]]
+
+QueryTaskInfosResp: {
+    result: 0|msg: null|queryTaskInfos: [
+        QueryTaskInfo{
+            taskId=34,
+            title='修改个人昵称',
+            socre=2,
+            taskType='2',
+            state='2',
+            description='修改个人昵称',
+            packageId='null',
+            packageDetail='null'
+        },...
+    ]
+}
+
+12、上传图片后设置头像
+
+SetUserInfoGirlReq [moudleId=20480, msgCode=583, yunvaId=100020, nickname=null, sex=null, iconUrl=9Aa=0bB.jpg, realName=null, weixinName=null, sloganUrl=null, sloganDuration=null, comment=null, auth=null phone=null signature=null birthday=null star=null bigIcon=9Aa=sLB.jpg hobby=null]
+
+ProxyEsbReq [msgId=583, moduleid=20480, uuid=93b39d7c67504ac2a41cebee5975a1f7, data=[4, 0, 12, 57, 65, 97, 61, 48, 98, 66, 46, 106, 112, 103, 0, 1, 0, 4, 0, 1, -122, -76, 16, 0, 12, 57, 65, 97, 61, 115, 76, 66, 46, 106, 112, 103, 0]]
+
+SetUserInfoGirlResp [result=null, msg=null]
+
+13、发送礼物
+UserGiveGiftReq [moduleId=49920, msgCode=1, yunvaId=100019, recevierYunvaId=100175, goodsId=4518, goodsName=follow gift, goodsVersion=null, goodsType=1, goodsPrice=0, goodsItems=1, goodsSign=6ea7d952c844433ffbeb154ff6d85073, remark=null, channelId=direct, sourceId=null, appId=100005, appName=LiveTver, appVersion=1.0alpha, imsi=, imei=861891036544195, mac=02:00:00:00:00:00, payPassword=null, factory=LeMobile, model=Le X620, roomId=84215, chatMsg=null, chatPicUrl=http://plugin.soulgun.net/9Aa=CY.png, cartoonType=0, cartoonUrl=null, voiceUrl=null, osType=1, nickname=我是一个有名字的, recevierNickname=Virgo, iconUrl=http://f.aiwaya.cn/09YD, sex=1, star=魔蝎座, giftPicUrl=http://plugin.soulgun.net/9Aa=YQB.png, giftCurrencyType=1, currenty=1, charmValue=1000, noticeType=0, wishType=null, giftAllNotice=null, day=1, times=null, charmValueSwitch=1, requestType=null, ext=null, yayaExt=null, buyRequest=null]
+
+ProxyEsbReq [msgId=1, moduleid=49920, uuid=b04342d3f72c4cdbaadbe4b6d164ec82, data=[…]]
+
+14、获取礼物
+http://web.soulgun.net:8000/getgiftinfo?appId=100005&itemType=1
+
+15、report反馈
+UserFeedbackReq:{yunvaId:100020|contect:Spam|sloganUrl:null|sloganDuration:null|iconUrls:null|type:1|ext:null|appId:100005}
+
+ProxyEsbReq [msgId=1063, moduleid=20480, uuid=1249c3a8bdcf48dc9d00588c205e6f21, data=[8, 0, 4, 0, 1, -122, -75, 9, 0, 4, 0, 0, 0, 0, 1, 0, 4, 0, 1, -122, -76, 10, 0, 7, 49, 48, 48, 48, 48, 53, 0, 6, 0, 2, 49, 0, 2, 0, 5, 83, 112, 97, 109, 0]]
+
+UpUserActionResp:{result:99010msg:null}
+
+16、修改用户昵称
+SetUserInfoGirlReq [moudleId=20480, msgCode=583, yunvaId=100019, nickname=大名19, sex=null, iconUrl=null, realName=null, weixinName=null, sloganUrl=null, sloganDuration=null, comment=null, auth=null phone=null signature=null birthday=null star=null bigIcon=null hobby=null]
+
+ProxyEsbReq [msgId=583, moduleid=20480, uuid=ffa3dfef48ba4cf9b6fba5dc21fbac62, data=[。。。]] 
+
+17、礼物列表
+http://web.soulgun.net:8000/getgiftinfo?appId=100005&itemType=1
+
+18、我的-等级显示
+QueryUserGrowUpInfoReq:{appId:100005|yunvaId:100020|type:0101}
+ProxyEsbReq [msgId=137, moduleid=9216, uuid=882137512b5943b5bbd18eb16234c140, data=[1, 0, 7, 49, 48, 48, 48, 48, 53, 0, 2, 0, 4, 0, 1, -122, -76, 3, 0, 5, 48, 49, 48, 49, 0]]
+
+QueryUserGrowUpInfoResp:{result:0|msg:操作成功|userGrowUpInfos:[UserGrowUpInfo{currentLevel=176, currentScore=18627782, currentUrl='', nextLevel=177, nextScore=18712531, nextUrl='', currentLevelScore=18397901}]}
+
+五、推送
+购买礼物推送：
+2|{"yunvaId":100066,"recevierYunvaId":100180,"goodsId":"4556","goodsName":"Clover","goodsType":"1","goodsItems":1,"roomId":81477,"chatMsg":"","chatPicUrl":"http://plugin.soulgun.net/9Aa=GZB.png","cartoonType":"0","cartoonUrl":"","voiceUrl":"","recharge":0,"nickname":"100066","recevierNickname":"PC001","osType":"1","appId":"100005","times":1,"priority":4,"chairCharm":4,"ext":null,"iconUrl":"9Aa=S4.jpg","vipIconUrl":null,"medalIconUrl":"","iconNickName":"Clover","specialEffectType":0}
+
+3|{"yunvaId":100020,"recevierYunvaId":0,"nickname":"我的名字很长很长","recevierNickname":null,"goodsId":null,"goodsName":"幸运草","goodsVersion":null,"goodsType":"free","goodsPrice":null,"goodsItems":1,"goodsSign":null,"remark":null,"channelId":null,"sourceId":null,"appId":"100005","appName":null,"appVersion":null,"imsi":null,"imei":null,"mac":null,"payPassword":null,"factory":null,"model":null,"roomId":81477,"chatMsg":null,"chatPicUrl":null,"cartoonType":null,"cartoonUrl":null,"voiceUrl":null,"osType":"1","transactionId":"bd00bd042016072107265993400000284","status":null,"iconUrl":null,"sex":null,"star":null,"giftPicUrl":"1QgE","giftCurrencyType":null,"currency":null,"charmValue":null,"noticeType":null,"wishType":null,"giftAllNotice":null,"day":null,"times":null,"charmSwitch":null,"requestType":null,"ext":null,"ext2":null,"extOne":null,"privilegeLevel":null,"privilegeCurrency":null,"privilegeTextColor":null,"privilegeGroup":null,"privilegeItems":null,"privilegePrice":null,"privilegeMatId":null,"privilegeMatDay":null,"privilegeMatName":null,"privilegeMatUrl":null,"discount":100}
+
+座驾推送：
+5|{"carName":"兰博基尼","carIconUrl":"http://plugin.soulgun.net/9Aa=iLB.png","nickname":"我的名字很长很长","yunvaId":100020,"iconUrl":"9Aa=eDB.jpg","vipIconUrl":null,"medalIconUrl":"","goodsId":"4546","wealthLevel":95,"iconNickName":"Lamborghini","showInScreen":1}
+
+
+35|{"yunvaId":100020,"roomId":81477,"hot":74,"colorType":3
